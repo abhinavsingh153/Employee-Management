@@ -8,28 +8,23 @@
 		<body>
 
 <?php 
-//            $connection = mysqli_connect('localhost' , 'root' ,'', 'record');
-            /* check if the server connnection is established*/
-//            if($connection){
-//                echo 'Database connected<br>' ;
-//            }
-            //$selected = mysql_select_db('record' , $connection);
+            $connection = mysqli_connect('localhost:3308' , 'root' ,'', 'record');
+          /* check if the server connnection is established*/
+            if($connection){
+                echo 'Database connected<br>' ;
+            }else{
+                error.mysqli_connect();
+            }
+          $selected = mysqli_select_db($connection , 'record');
+          
+            if($selected ){
+                echo "Database selected<br>";
+            }
+            else{
+                error.mysqli_select_db();
+            }
             
-//            if($selected ){
-//                echo "Database selected<br>";
-//            }
-//            else{
-//                error.mysql_select_db();
-//            }
-            
-            $con = mysqli_connect("localhost","root","","record");
-
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  exit();
-}
-?>
+ ?>
 
 		</body>
 	
