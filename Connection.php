@@ -8,7 +8,7 @@
 		<body>
 
 <?php 
-            $connection = mysqli_connect('localhost:3308' , 'root' ,'', 'record');
+            $connection = mysqli_connect('localhost:3308' , 'root' ,'');
           /* check if the server connnection is established*/
             if($connection){
                 echo 'Database connected<br>' ;

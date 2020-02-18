@@ -1,3 +1,40 @@
+<?php 
+
+if(isset($_POST['Submit'])){
+    
+    if(!empty($_POST['EName'] && !empty($_POST['SSN']))){
+    $EName = $_POST['EName'];
+    $SSN = $_POST['SSN'];
+    $Dept = $_POST['Dept'];
+    $Salary = $_POST['Salary'];
+    $HomeAddress = $_POST['HomeAddress'];
+    
+    //Establishing connection with the dtabase
+    $Connection  = mysqli_connect('localhost:3308' , 'root' ,'' , 'record'); 
+    
+    //Selecting out database.
+    $Selected = mysqli_select_db($Connection , 'record');
+    
+    $Query = "INSERT INTO emp_record(ename , ssn , dept, salary, homeaddress)
+                VALUES('$EName','$SSN','$Dept','$Salary' , '$HomeAddress')";
+    $Execute = mysqli_query($Connection , $Query);
+    
+    if($Execute){
+        
+        echo '<span class = "success">Record has been added</span>';
+    }
+        
+    }
+    
+    else{
+        
+        echo '<span class="FieldInfoHeading">Please at least add name and social security number.</span>';
+    }
+    
+}
+?>
+
+
 <!DOCTYPE>
 	<html>
 	
@@ -32,11 +69,29 @@
                     float : left;
                 }
                 .FieldInfo{
-                    color: rgb(251,174,44);
+                    color: #5D0580;
                     font-family: Bitter, Georgia,Times,"Times New Roman",serif;
                     font-size: 1em;
                 }
+                .success{
+                    color: #5D0580;
+                    font-family : Bitter, Georgia,Times,"Times New Roman",serif;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+                .FieldInfoHeading{
+                     color: #5D0580;
+                    font-family : Bitter, Georgia,Times,"Times New Roman",serif;
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+                
+                div{
+                    width : 500px;
+                    margin-left: 360px;
+                }
             </style>
+            
             
 <div>
     <form action="Insert_Into_Database.php" method="Post">
