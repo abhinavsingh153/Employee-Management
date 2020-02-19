@@ -2,7 +2,7 @@
 	<html>
 	
 		<head> 
-		<title>View_From_Database.php </title>
+		<title>Delete_From_Database.php </title>
 		</head>
 		
 		<body>
@@ -55,6 +55,8 @@
                     margin-left: 360px;
                 }
             </style>
+            
+            <h2 class ='success'><?php echo @$_GET['Deleted']; ?></h2>
         
         <table width="1000" border="5" align="center" >
             <caption class="caption">View From Database</caption>
